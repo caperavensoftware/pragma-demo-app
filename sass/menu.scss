@@ -1,0 +1,16 @@
+#menu-background {
+  background: black;
+  opacity: 0;
+  position: fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  will-change: opacify;
+}
+
+.main-menu {
+  width:100%;
+  height:100%;
+  background: yellow;
+}
