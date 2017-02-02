@@ -1,7 +1,10 @@
 <template>
     <require from="./components/menu/menu"></require>
+    <div class="application-bar">
+        <h1>Demo Application</h1>
+    </div>
+    <router-view></router-view>
+
     <div id="menu-background" aria-hidden="true"></div>
     <menu></menu>
-
-    <router-view></router-view>
 </template>

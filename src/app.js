@@ -9,4 +9,8 @@ export class App {
 
         this.router = router;
     }
+
+    attached() {
+        document.getElementById("menu-burger-button").style.marginTop = "-0.3rem";
+    }
 }

@@ -1,4 +1,16 @@
 @import './normalize';
 @import './fonts';
 @import './layout';
+@import './colors';
 @import './menu';
+
+* {
+  margin:0;
+  padding:0;
+}
+
+.application-bar {
+  background: $toolbar-background;
+  color:white;
+}
+

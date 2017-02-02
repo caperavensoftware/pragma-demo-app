@@ -1,5 +1,7 @@
+@import './colors';
+
 #menu-background {
-  background: black;
+  background: $menu-background-background;
   opacity: 0;
   position: fixed;
   left:0;
@@ -10,7 +12,10 @@
 }
 
 .main-menu {
-  width:100%;
-  height:100%;
-  background: yellow;
+  position:absolute;
+  top:0;
+  left:0;
+  right:15%;
+  bottom:0;
+  background: $main-menu-background;
 }
