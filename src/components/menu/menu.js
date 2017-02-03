@@ -48,6 +48,10 @@ export class Menu {
             return this.quickFilterChanged()
         }
 
+        this.filter();
+    }
+
+    filter() {
         let result;
 
         if (this.quickFilter) {
@@ -72,5 +76,7 @@ export class Menu {
         else {
             this.menuItems = this.menuItemsBackup.slice(0);
         }
+
+        this.filter();
     }
 }
