@@ -94,6 +94,10 @@
   align-items: center;
   padding: 0.2rem;
   cursor: pointer;
+
+  div {
+    pointer-events: none;
+  }
 }
 
 .mi-text {
