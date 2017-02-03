@@ -54,6 +54,8 @@ export class Menu {
     filter() {
         let result;
 
+        this.searchText = this.searchText || "";
+
         if (this.quickFilter) {
             result = this.quickItems.filter((item) => {
                 return item.text.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
