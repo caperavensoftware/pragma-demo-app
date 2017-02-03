@@ -1,5 +1,31 @@
 @import './colors';
 
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-column() {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+@mixin flex-row() {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row
+}
+
+@mixin flex1() {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
 #menu-background {
   background: $menu-background-background;
   opacity: 0;
@@ -11,6 +37,18 @@
   will-change: opacify;
 }
 
+.menu-search {
+  height: 3rem;
+  padding: 0.3rem;
+
+  input {
+    width: 100%;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+  }
+}
+
 .main-menu {
   position:absolute;
   top:0;
@@ -18,4 +56,46 @@
   right:15%;
   bottom:0;
   background: $main-menu-background;
+
+  @include flexbox();
+  @include flex-column();
+}
+
+[role="menu"] {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  list-style: none;
+
+  li {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.isQuick, .isNotQuick {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.isQuick {
+  background: $main-menu-inQuickLaunch;
+}
+
+.isNotQuick {
+  background: $main-menu-notInQuickLaunch;
+}
+
+.mi {
+  @include flexbox();
+  @include flex-row();
+
+  height: 2rem;
+  align-items: center;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.mi-text {
+  @include flex1();
 }

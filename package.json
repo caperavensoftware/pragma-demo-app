@@ -22,7 +22,7 @@
     "dependencies": {
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
       "aurelia-framework": "npm:aurelia-framework@^1.0.1",
-      "pragma-menu": "npm:pragma-menu@^1.0.4"
+      "pragma-menu": "npm:pragma-menu@^1.0.7"
     },
     "devDependencies": {}
   }

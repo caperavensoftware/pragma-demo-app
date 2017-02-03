@@ -11,6 +11,8 @@ export class App {
     }
 
     attached() {
-        document.getElementById("menu-burger-button").style.marginTop = "-0.3rem";
+        const menuBurgerButton = document.getElementById("menu-burger-button");
+
+        menuBurgerButton.style.marginTop = "-0.3rem";
     }
 }
