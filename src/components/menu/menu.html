@@ -2,6 +2,25 @@
 <template>
     <pragma-menu>
         <div slot="menu-content" class="main-menu">
+            <div class="menu-header">
+                <div id="userInformation">
+                    <div class="portrait"></div>
+                    <div>
+                        <div>Username</div>
+                        <div>Edit</div>
+                    </div>
+                </div>
+
+                <div class="header-definition">
+                    <label>Notifications</label>
+                    <div>3</div>
+                </div>
+
+                <div class="header-definition">
+                    <label>Quicklaunch items</label>
+                    <input type="checkbox" checked.bind="quickFilter" />
+                </div>
+            </div>
             <ul role="menu" click.delegate="menuSelected($event)">
                 <li repeat.for="menuItem of menuItems" role="menuitem">
                     <div class="mi" data-id="${menuItem.id}">
@@ -11,7 +30,7 @@
                 </li>
             </ul>
             <div class="menu-search">
-                <input type="search" placeholder="Search"/>
+                <input type="search" placeholder="Search" value.bind="searchText"/>
             </div>
         </div>
         <div slot="menu-quick-content"></div>

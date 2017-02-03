@@ -1,17 +1,21 @@
 import {menuItems, quickItems} from './menu-items';
+import {bindable, customElement, useShadowDOM, inject} from 'aurelia-framework';
 
-import {customElement, useShadowDOM, inject} from 'aurelia-framework';
 @customElement('menu')
 @inject(Element)
 export class Menu {
     element = null;
-    menuItems = null;
-    quickItems = null;
+
+    @bindable menuItems = null;
+    @bindable quickItems = null;
+    @bindable searchText = null;
+    @bindable quickFilter = false;
 
     constructor(element) {
         this.element = element;
-        this.menuItems = menuItems.splice(0);
-        this.quickItems = quickItems.splice(0);
+        this.menuItems = menuItems.slice(0);
+        this.menuItemsBackup = menuItems.slice(0);
+        this.quickItems = quickItems.slice(0);
 
         this.updateMenuItemQuickStatus();
     }
@@ -26,6 +30,10 @@ export class Menu {
                 menuItem.inQuicklaunch = !!quickItem;
             }
 
+            for (let quickItem of this.quickItems) {
+                quickItem.inQuicklaunch = true;
+            }
+
             resolve();
         });
     }
@@ -33,5 +41,36 @@ export class Menu {
     menuSelected(event) {
         const id = event.target.dataset.id;
         console.log(id);
+    }
+
+    searchTextChanged() {
+        if (this.searchText.length == 0) {
+            return this.quickFilterChanged()
+        }
+
+        let result;
+
+        if (this.quickFilter) {
+            result = this.quickItems.filter((item) => {
+                return item.text.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+            });
+        }
+        else
+        {
+            result = this.menuItemsBackup.filter((item) => {
+                return item.text.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1;
+            });
+        }
+
+        this.menuItems = result;
+    }
+
+    quickFilterChanged() {
+        if (this.quickFilter) {
+            this.menuItems = this.quickItems.slice(0);
+        }
+        else {
+            this.menuItems = this.menuItemsBackup.slice(0);
+        }
     }
 }
