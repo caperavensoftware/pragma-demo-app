@@ -5,7 +5,8 @@ export const menuItems = [
     },
     {
         id: 2,
-        text: "Assets"
+        text: "Assets",
+        plan: "assets"
     },
     {
         id: 1,
@@ -153,7 +154,8 @@ export const menuItems = [
     },
     {
         id: 3,
-        text: "Work Orders"
+        text: "Work Orders",
+        plan: "workorders"
     },
     {
         id: 1,
@@ -193,7 +195,8 @@ export const menuItems = [
     },
     {
         id: 4,
-        text: "Planning and Scheduling"
+        text: "Planning and Scheduling",
+        plan: "planning"
     },
     {
         id: 1,
@@ -593,16 +596,19 @@ export const quickItems = [
     {
         id: 3,
         text: "Work Orders",
-        Icon: "workorder.svg"
+        icon: "workorder.svg",
+        plan: "workorders"
     },
     {
         id: 2,
         text: "Assets",
-        Icon: "asset.svg"
+        icon: "asset.svg",
+        plan: "assets"
     },
     {
         id: 4,
         text: "Planning and Scheduling",
-        Icon: "planning.svg"
+        icon: "planning.svg",
+        plan: "planning"
     }
 ];

@@ -1,8 +1,9 @@
 import {menuItems, quickItems} from './menu-items';
 import {bindable, customElement, useShadowDOM, inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 
 @customElement('menu')
-@inject(Element)
+@inject(Element, Router)
 export class Menu {
     element = null;
 
@@ -11,8 +12,9 @@ export class Menu {
     @bindable searchText = null;
     @bindable quickFilter = false;
 
-    constructor(element) {
+    constructor(element, router) {
         this.element = element;
+        this.router = router;
         this.menuItems = menuItems.slice(0);
         this.menuItemsBackup = menuItems.slice(0);
         this.quickItems = quickItems.slice(0);
@@ -39,8 +41,9 @@ export class Menu {
     }
 
     menuSelected(event) {
-        const id = event.target.dataset.id;
-        console.log(id);
+        const plan = event.target.dataset.plan || "";
+        this.router.navigateToRoute(plan);
+        this.pragmaMenu.au["pragma-menu"].viewModel.isOpen = false;
     }
 
     searchTextChanged() {

@@ -1,6 +1,6 @@
 
 <template>
-    <pragma-menu>
+    <pragma-menu ref="pragmaMenu">
         <div slot="menu-content" class="main-menu">
             <div class="menu-header">
                 <div id="userInformation">
@@ -23,7 +23,7 @@
             </div>
             <ul role="menu" click.delegate="menuSelected($event)">
                 <li repeat.for="menuItem of menuItems" role="menuitem">
-                    <div class="mi" data-id="${menuItem.id}">
+                    <div class="mi" data-plan="${menuItem.plan}">
                         <div class="mi-text">${menuItem.text}</div>
                         <div class="${menuItem.inQuicklaunch ? 'isQuick' : 'isNotQuick'}"></div>
                     </div>
