@@ -1,11 +1,12 @@
 {
-  "cacheId": "untitled",
+  "cacheId": "pragma-demo-app",
   "staticFileGlobs": [
     "index.html",
     "config.js",
     "images/**/*.*",
     "styles/**/*.css",
     "app/src/**/*.*",
-    "jspm_packages/system.js"
+    "jspm_packages/system.js",
+    "data/**/*.*"
   ]
 }

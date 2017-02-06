@@ -3,6 +3,8 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {bindable, inject} from 'aurelia-framework';
 import {AssetTemplates} from './asset-templates';
 
+
+
 @inject(EventAggregator)
 export class Assets {
     @bindable templates;
