@@ -596,19 +596,19 @@ export const quickItems = [
     {
         id: 3,
         text: "Work Orders",
-        icon: "workorder.svg",
+        icon: "ic_spares",
         plan: "workorders"
     },
     {
         id: 2,
         text: "Assets",
-        icon: "asset.svg",
+        icon: "ic_assets",
         plan: "assets"
     },
     {
         id: 4,
         text: "Planning and Scheduling",
-        icon: "planning.svg",
+        icon: "ic_scheduling",
         plan: "planning"
     }
 ];

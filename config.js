@@ -95,7 +95,7 @@ System.config({
     "aurelia-framework": "npm:aurelia-framework@1.0.8",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.1.0",
     "pragma-menu": "npm:pragma-menu@1.0.7",
-    "pragma-treeview": "npm:pragma-treeview@1.0.6",
+    "pragma-treeview": "npm:pragma-treeview@1.0.7",
     "npm:aurelia-binding@1.1.1": {
       "aurelia-logging": "npm:aurelia-logging@1.2.0",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.3",

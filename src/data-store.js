@@ -5,6 +5,11 @@ export class DataStore {
         this.worker.onmessage = this.onMessage.bind(this);
     }
 
+    dispose() {
+        this.postMessage("close", null);
+        this.worker = null;
+    }
+
     postMessage(message, parameters) {
         this.worker.postMessage([message, parameters]);
     }

@@ -33,6 +33,11 @@
                 <input type="search" placeholder="Search" value.bind="searchText"/>
             </div>
         </div>
-        <div slot="menu-quick-content"></div>
+        <div slot="menu-quick-content">
+            <ul role="menubar" click.delegate="menuSelected($event)">
+                <li class="${menuItem.icon}" data-tooltip="${menuItem.text}" repeat.for="menuItem of quickItems" data-icon data-plan="${menuItem.plan}">
+                </li>
+            </ul>
+        </div>
     </pragma-menu>
 </template>

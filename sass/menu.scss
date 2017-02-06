@@ -73,6 +73,10 @@
   }
 }
 
+[role="menubar"] {
+  list-style: none;
+}
+
 .isQuick, .isNotQuick {
   display: block;
   width: 0.75rem;
@@ -139,4 +143,31 @@
 
 [type=checkbox] {
   transform: scale(1.2);
+}
+
+[data-icon] {
+  width: 2rem;
+  height: 2rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin: 0.5rem;
+  position: relative;
+}
+
+[data-icon]:before {
+  content: attr(data-tooltip);
+  display: none;
+  background: #CCC;
+  padding:1rem;
+  white-space: nowrap;
+
+  position: absolute;
+  left: 2.5rem;
+  top: -0.7rem;
+  border-radius: 0.3rem;
+}
+
+[data-icon]:hover:before {
+  display: block;
 }

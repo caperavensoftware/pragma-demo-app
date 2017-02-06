@@ -3,7 +3,7 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 import {bindable, inject} from 'aurelia-framework';
 import {AssetTemplates} from './asset-templates';
 
-@inject(DataStore, EventAggregator)
+@inject(EventAggregator)
 export class Assets {
     @bindable templates;
 
@@ -11,25 +11,40 @@ export class Assets {
     eventAggregator;
     assetTreeRequestEvent;
     getRootEvent;
+    onMessageHandler;
 
-    constructor(dataStore, eventAggregator) {
-        this.dataStore = dataStore;
+    constructor(eventAggregator) {
+        this.dataStore = new DataStore();
         this.eventAggregator = eventAggregator;
         this.templates = new AssetTemplates();
 
-        this.assetTreeRequestEvent = this.eventAggregator.subscribe("assetTree:get", this.assetTreeRequest.bind(this));
-        this.getRootEvent = this.eventAggregator.subscribe("assetTree:getRoot", this.getRoot.bind(this));
+        this.assetTreeRequestHandler = this.assetTreeRequest.bind(this);
+        this.getRootHandler = this.getRoot.bind(this);
+        this.onMessageHandler = this.onMessage.bind(this);
     }
 
     attached() {
-        addEventListener("onmessage", this.onMessage.bind(this));
+        addEventListener("onmessage", this.onMessageHandler);
+
+        this.assetTreeRequestEvent = this.eventAggregator.subscribe("assetTree:get", this.assetTreeRequestHandler);
+        this.getRootEvent = this.eventAggregator.subscribe("assetTree:getRoot", this.getRootHandler);
+
         this.dataStore.postMessage("load", "data/assets.json");
     }
 
     detached() {
+        removeEventListener("onmessage", this.onMessageHandler);
+
         this.assetTreeRequestEvent.dispose();
+        this.assetTreeRequestEvent = null;
+
         this.getRootEvent.dispose();
+        this.getRootEvent = null;
+
+        this.dataStore.dispose();
         this.dataStore = null;
+
+        this.templates = null;
         this.eventAggregator = null;
     }
 
@@ -76,6 +91,10 @@ export class Assets {
     }
 
     loadAssets(assets, requesetId) {
+        if (!this.eventAggregator) {
+            debugger;
+        }
+
         this.eventAggregator.publish("assetTree:push", {
             parentId: requesetId,
             data: assets

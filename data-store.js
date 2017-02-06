@@ -6,13 +6,13 @@ var messages = {
     count: "data-count",
     getAllData: "get-all-data",
     getRoot: "data:root",
-    getChildren: "data:children"
+    getChildren: "data:children",
+    close: "close"
 };
 
 function DataStoreManager() {
     this.actionAfterLoad = null;
     this.data = null;
-    this.load("data/assets.json");
 }
 
 DataStoreManager.prototype.getAllData = function() {
@@ -99,6 +99,13 @@ DataStoreManager.prototype.load = function(params) {
         });
 };
 
+function closeManager() {
+    storeManager.actionAfterLoad = null;
+    storeManager.data = null;
+    storeManager = null;
+    close();
+};
+
 var storeManager = new DataStoreManager();
 
 onmessage = function(e) {
@@ -119,5 +126,8 @@ onmessage = function(e) {
     }
     else if (action === messages.getChildren){
         storeManager.getChildren(parameters);
+    }
+    else if (action === messages.close) {
+        closeManager();
     }
 };
