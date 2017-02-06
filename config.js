@@ -91,9 +91,11 @@ System.config({
   },
   map: {
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@2.0.1",
+    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1",
     "aurelia-framework": "npm:aurelia-framework@1.0.8",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.1.0",
     "pragma-menu": "npm:pragma-menu@1.0.7",
+    "pragma-treeview": "npm:pragma-treeview@1.0.6",
     "npm:aurelia-binding@1.1.1": {
       "aurelia-logging": "npm:aurelia-logging@1.2.0",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.3",

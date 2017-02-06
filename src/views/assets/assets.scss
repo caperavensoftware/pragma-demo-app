@@ -1,0 +1,27 @@
+.pragma-treeview {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.treeViewItem {
+  pointer-events: none;
+
+  .code {
+    color: cornflowerblue;
+  }
+
+  .description {
+    color: slategray;
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+}
+
+[aria-busy="true"] > div {
+  background: #fbd850;
+}
+
+.leftOnceSpace {
+  margin-left: 0rem;
+}

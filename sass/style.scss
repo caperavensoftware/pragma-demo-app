@@ -14,3 +14,17 @@
   color:white;
 }
 
+router-view {
+  width: 100%;
+  height: 100%;
+}
+
+[aria-hidden="true"] {
+  display: none;
+  pointer-events: none;
+}
+
+ul[role="tree"] {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}

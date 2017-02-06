@@ -4,7 +4,8 @@ export function configure(aurelia) {
             .standardConfiguration()
             .developmentLogging()
             .globalResources(
-                'pragma-menu/pragma-menu'
+                'pragma-menu/pragma-menu',
+                'pragma-treeview/pragma-treeview'
             );
 
         aurelia.start().then(() => {
