@@ -92,7 +92,7 @@ export class Assets {
 
     loadAssets(assets, requesetId) {
         if (!this.eventAggregator) {
-            debugger;
+            return;
         }
 
         this.eventAggregator.publish("assetTree:push", {
