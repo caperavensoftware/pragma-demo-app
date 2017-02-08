@@ -1,0 +1,46 @@
+$width: 40px;
+$switch-width: $width / 2;
+$height: 20px;
+$background: #3B4753;
+$unchecked: #CED1D4;
+$checked: #50E3AC;
+$corner-radius: 10px;
+
+.switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  display: block;
+  width: $width;
+  height: $height;
+  position: relative;
+}
+
+.switch:before {
+  content: "";
+  display: block;
+  width: $width;
+  height: $height;
+  background: $background;
+  border-radius: $corner-radius;
+}
+
+.switch:after {
+  content: "";
+  display: block;
+  width: $switch-width;
+  height: $height;
+  background: $unchecked;
+  border-radius: $corner-radius;
+  position: absolute;
+  top: 0;
+  will-change: transform, background;
+  transition: transform 0.2s, background 0.2s  ease-out;
+  transform: translateX(0)
+}
+
+.switch:checked:after {
+  background: $checked;
+  transform: translateX($switch-width);
+}
