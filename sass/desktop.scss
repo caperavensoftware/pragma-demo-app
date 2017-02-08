@@ -1,4 +1,15 @@
 router-view {
   position: absolute;
+  top: 55px;
   left: 60px;
+  right: 0;
+  bottom: 0;
+}
+
+.main-toolbar {
+  margin-left: -60px;
+
+  h2 {
+    margin-left: 80px;
+  }
 }

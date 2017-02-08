@@ -1,0 +1,32 @@
+@import './flexbox';
+@import './colors';
+
+.main-toolbar {
+  background: $main-toolbar;
+  height: 54px;
+
+  @include flexbox();
+  justify-content: flex-end;
+  align-items: center;
+
+  h2 {
+    height: 42px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.context-toolbar {
+  @include flexbox();
+  @include flex1();
+
+  justify-content: flex-end;
+  align-items: center;
+
+  button {
+    width: 42px;
+    height: 42px;
+    border-width: 0;
+    background: transparent;
+  }
+}
