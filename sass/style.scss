@@ -12,7 +12,12 @@
 
 .application-bar {
   background: $toolbar-background;
+  padding-left: 5rem;
   color:white;
+  height: 3.375rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 router-view {
@@ -28,4 +33,15 @@ router-view {
 ul[role="tree"] {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.appbar-notifications {
+  margin-right: 2rem;
+  display: flex;
+  width: 4rem;
+  justify-content: space-between;
 }

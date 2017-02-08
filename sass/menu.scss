@@ -40,12 +40,19 @@
 .menu-search {
   height: 3rem;
   padding: 0.3rem;
+  padding-left: 1rem;
+  background: $menu-search-bar-background;
+  display: flex;
+  align-items: center;
 
   input {
     width: 100%;
     height: 2rem;
     padding: 0.5rem;
-    border-radius: 0.3rem;
+    border-width: 0;
+    background: $menu-search-bar-background;
+    color: $main-menu-foreground;
+    outline: none;
   }
 }
 
@@ -56,6 +63,7 @@
   right:15%;
   bottom:0;
   background: $main-menu-background;
+  color: $main-menu-foreground;
 
   @include flexbox();
   @include flex-column();
@@ -77,6 +85,10 @@
   list-style: none;
 }
 
+[role="menuitem"] {
+  height: 1.5rem;
+}
+
 .isQuick, .isNotQuick {
   display: block;
   width: 0.75rem;
@@ -92,25 +104,23 @@
 }
 
 .mi {
-  @include flexbox();
-  @include flex-row();
-
-  height: 2rem;
-  align-items: center;
-  padding: 0.2rem;
   cursor: pointer;
+  @include flexbox();
 
   div {
     pointer-events: none;
   }
 }
 
-.mi-text {
-  @include flex1();
+.mi-quick {
+  display: flex;
+  width: 3rem;
+  justify-content: center;
+  align-items: center;
 }
 
+
 .menu-header {
-  background: $toolbar-background;
   color: $toolbar-foreground;
   padding: 2rem;
 }
@@ -119,7 +129,6 @@
   @include flexbox();
   @include flex-row();
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .portrait {
@@ -132,8 +141,13 @@
 
 .header-definition {
   @include flexbox();
-  @include flex-row();
-  align-items: center;
+
+  border-bottom: 0.1rem;
+  border-bottom-style: solid;
+  border-color: $main-menu-foreground;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
 
   label {
     display: block;
@@ -146,10 +160,8 @@
 }
 
 [data-icon] {
-  width: 2rem;
-  height: 2rem;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   margin: 0.5rem;
   position: relative;
@@ -158,14 +170,13 @@
 [data-icon]:before {
   content: attr(data-tooltip);
   display: none;
-  background: #CCC;
-  padding:1rem;
+  background: #3B4753;
+  color: white;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   white-space: nowrap;
-
   position: absolute;
-  left: 2.5rem;
-  top: -0.7rem;
-  border-radius: 0.3rem;
+  left: 3rem;
+  border-radius: 10rem;
 }
 
 [data-icon]:hover:before {

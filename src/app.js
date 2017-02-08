@@ -12,10 +12,4 @@ export class App {
 
         this.router = router;
     }
-
-    attached() {
-        const menuBurgerButton = document.getElementById("menu-burger-button");
-
-        menuBurgerButton.style.marginTop = "-0.3rem";
-    }
 }
