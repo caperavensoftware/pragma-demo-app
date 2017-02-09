@@ -21,3 +21,16 @@ body {
   bottom:0;
   background: $body-background;
 }
+
+.container {
+  display: flex;
+}
+
+.flex-horizontal {
+  flex-direction: row;
+}
+
+.flex-vertical {
+  flex-direction: column;
+  padding-left: 2rem;
+}
