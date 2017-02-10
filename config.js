@@ -94,7 +94,7 @@ System.config({
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1",
     "aurelia-framework": "npm:aurelia-framework@1.0.8",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.1.0",
-    "pragma-menu": "npm:pragma-menu@1.0.10",
+    "pragma-menu": "npm:pragma-menu@1.0.11",
     "pragma-screengen": "npm:pragma-screengen@0.0.12",
     "pragma-tabsheet": "npm:pragma-tabsheet@1.0.21",
     "pragma-treeview": "npm:pragma-treeview@1.0.7",
