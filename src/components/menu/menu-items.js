@@ -610,5 +610,11 @@ export const quickItems = [
         text: "Planning and Scheduling",
         icon: "ic_scheduling",
         plan: "planning"
+    },
+    {
+        id: 4,
+        text: "Details",
+        icon: "ic_scheduling",
+        plan: "details"
     }
 ];

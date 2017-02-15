@@ -25,7 +25,15 @@ gulp.task("build:dist", ["build:all"], function() {
             dest: "dist"
         },
         {
+            src: ["data-store.js"],
+            dest: "dist"
+        },
+        {
             src: ["config.js"],
+            dest: "dist"
+        },
+        {
+            src: ["fetch.js"],
             dest: "dist"
         },
         {
@@ -39,6 +47,14 @@ gulp.task("build:dist", ["build:all"], function() {
         {
             src: ["manifest.json"],
             dest: "dist"
+        },
+        {
+            src: ["data/**/**"],
+            dest: "dist/data"
+        },
+        {
+            src: ["fonts/**/**"],
+            dest: "dist/fonts"
         }
     ])
 });

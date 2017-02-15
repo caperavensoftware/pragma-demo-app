@@ -15,25 +15,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true,
-      "worker": true,
-      "mocha": true
-    },
-    "ecmaFeatures": {
-      "modules": true
-    },
-    "rules": {
-      "no-var": 1
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module"
-    }
-  },
   "devDependencies": {
     "build-utilities": "0.0.127"
   },

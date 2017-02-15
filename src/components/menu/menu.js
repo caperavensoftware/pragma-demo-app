@@ -1,5 +1,5 @@
 import {menuItems, quickItems} from './menu-items';
-import {bindable, customElement, useShadowDOM, inject} from 'aurelia-framework';
+import {bindable, customElement, inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 
 @customElement('menu')

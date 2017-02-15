@@ -1,0 +1,531 @@
+<template>
+    <require from="./details.css"></require>
+    <div class="main-toolbar">
+        <button click.delegate="backToBrowse()" class="back-button" if.bind="!viewState.inBrowse && viewState.hasDataItems">
+            <svg width="19" height="19" viewBox="77 79 19 19" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" fill="none" fill-rule="evenodd"><path d="M78 80h18v18H78z"/><path fill="#3B4753" d="M93 88.25h-9.13l4.19-4.19L87 83l-6 6 6 6 1.06-1.06-4.19-4.19H93z"/></g></svg>
+        </button>
+
+        <h2>Details</h2>
+
+        <div class="context-toolbar" >
+            <button>
+                <svg width="25" height="25" viewBox="186 68 25 25" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" fill="none" fill-rule="evenodd"><path d="M187 69h24v24h-24z"/><path d="M207 73h-16c-1.1 0-1.99.9-1.99 2L189 87c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V75c0-1.1-.9-2-2-2zm-5 14h-11v-4h11v4zm0-5h-11v-4h11v4zm5 5h-4v-9h4v9z" fill="#3B4753"/></g></svg>
+            </button>
+            <button>
+                <svg width="31" height="25" viewBox="234 68 31 25" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" fill="none" fill-rule="evenodd"><path d="M235 69h24v24h-24z"/><path d="M255 73h-16c-1.1 0-1.99 1.012-1.99 2.25l-.01 13.5c0 1.238.9 2.25 2 2.25h16c1.1 0 2-1.012 2-2.25v-13.5c0-1.238-.9-2.25-2-2.25zm-4 16h-8v-2h8v2zm0-3h-8v-2h8v2zm0-3h-8v-2h8v2zm0-3h-8v-2h8v2zm6-3h-14v-2h14v2zm-15.073 12H239v-2h2.927v2zm0-3H239v-2h2.927v2zm0-3H239v-2h2.927v2zm0-3H239v-2h2.927v2zm0-3H239v-2h2.927v2zM251 89h6V77h-6v12zm10.8-7.5l1.1-.8c.1-.1.1-.2.1-.3l-1-1.7c-.1-.1-.2-.2-.3-.1l-1.3.4c-.3-.2-.6-.4-.9-.5l-.2-1.3c0-.1-.1-.2-.3-.2h-2c-.1 0-.2.1-.3.2l-.2 1.3c-.3.1-.6.3-.9.5l-1.3-.5c-.1 0-.2 0-.3.1l-1 1.7c-.1.1 0 .2.1.3l1.1.8v1l-1.1.8c-.1.2-.1.3-.1.4l1 1.7c.1.1.2.2.3.1l1.4-.4c.3.2.6.4.9.5l.2 1.3c-.1.1.1.2.2.2h2c.1 0 .2-.1.3-.2l.2-1.3c.3-.1.6-.3.9-.5l1.3.5c.1 0 .2 0 .3-.1l1-1.7c.1-.1 0-.2-.1-.3l-1.1-.9v-1zM258 84c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#3B4753"/></g></svg>
+            </button>
+            <button>
+                <svg width="25" height="25" viewBox="287 68 25 25" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" fill="none" fill-rule="evenodd"><path d="M288 69h24v24h-24z"/><path d="M308 73h-16c-1.1 0-1.99.9-1.99 2L290 87c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V75c0-1.1-.9-2-2-2zm0 4l-8 5-8-5v-2l8 5 8-5v2z" fill="#3B4753"/></g></svg>
+            </button>
+            <button>
+                <svg width="25" height="25" viewBox="327 68 25 25" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" fill="none" fill-rule="evenodd"><path d="M328 69h24v24h-24z"/><path d="M340 77c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#3B4753"/></g></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="grid" if.bind="viewState.inBrowse">
+        Grid Views
+    </div>
+
+    <div id="details">
+        <div id="details-list" if.bind="viewState.hasDataItems">
+            <svg width="361px" height="1182px" viewBox="54 126 361 1182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs>
+                    <rect id="path-1" x="0" y="0" width="360.115913" height="48"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-3" x="0" y="0" width="360.115913" height="48"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <ellipse id="path-5" cx="96.5" cy="96.5" rx="68.1176471" ry="68.1176471"></ellipse>
+                    <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="136.235294" height="136.235294" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <ellipse id="path-7" cx="96.5" cy="96.5" rx="68.1176471" ry="68.1176471"></ellipse>
+                    <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="136.235294" height="136.235294" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <ellipse id="path-9" cx="96.5" cy="96.5" rx="68.1176471" ry="68.1176471"></ellipse>
+                    <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="136.235294" height="136.235294" fill="white">
+                        <use xlink:href="#path-9"></use>
+                    </mask>
+                    <ellipse id="path-11" cx="96.5" cy="96.5" rx="68.1176471" ry="68.1176471"></ellipse>
+                    <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="136.235294" height="136.235294" fill="white">
+                        <use xlink:href="#path-11"></use>
+                    </mask>
+                    <rect id="path-13" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-15">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-16" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-18">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-19" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-21">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-22" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-24">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-25" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-27">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-28" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-30">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-31" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-33">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-34" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-36">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-37" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-39">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                    <rect id="path-40" x="0" y="0" width="360" height="89"></rect>
+                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-42">
+                        <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                        <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                        <feColorMatrix values="0 0 0 0 0.807843137   0 0 0 0 0.819607843   0 0 0 0 0.831372549  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+                    </filter>
+                </defs>
+                <g id="Group-15" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(54.000000, 126.000000)">
+                    <rect id="Rectangle-Copy-9" fill="#878E96" x="0" y="0" width="360" height="261"></rect>
+                    <g id="Group-Copy-2" transform="translate(0.000000, 196.000000)">
+                        <g id="table-row-header-copy">
+                            <use fill="#CED1D4" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        </g>
+                        <text id="A21---ABC-Manufactor" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="48" fill="#161616">
+                            <tspan x="53" y="15">A21 - ABC Manufactoring &amp; Packaging…</tspan>
+                        </text>
+                        <g id="contract" transform="translate(21.000000, 16.000000)" opacity="0.800000012">
+                            <g id="Page-1" transform="translate(9.000000, 9.000000) scale(1, -1) translate(-9.000000, -9.000000) ">
+                                <polygon id="Stroke-1" stroke-opacity="0.00784313771" stroke="#000000" stroke-width="0.5" points="0 0 17.9999989 0 17.9999989 17.9999989 0 17.9999989"></polygon>
+                                <polygon id="Fill-2" fill="#3B4753" points="5.55749955 7.87999976 8.99999946 11.3149994 12.4424993 7.87999976 13.4999992 8.93749958 8.99999946 13.4374993 4.49999973 8.93749958"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Group-Copy-3" transform="translate(0.000000, 244.000000)">
+                        <g id="table-row-header-copy">
+                            <use fill="#CED1D4" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                        </g>
+                        <text id="Awaiting-approval-Copy" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="48" fill="#161616">
+                            <tspan x="53" y="15">Awaiting </tspan>
+                            <tspan x="53" y="63">approval</tspan>
+                        </text>
+                        <g id="contract" transform="translate(21.000000, 16.000000)" opacity="0.800000012">
+                            <g id="Page-1" transform="translate(9.000000, 9.000000) scale(1, -1) translate(-9.000000, -9.000000) ">
+                                <polygon id="Stroke-1" stroke-opacity="0.00784313771" stroke="#000000" stroke-width="0.5" points="0 0 17.9999989 0 17.9999989 17.9999989 0 17.9999989"></polygon>
+                                <polygon id="Fill-2" fill="#3B4753" points="5.55749955 7.87999976 8.99999946 11.3149994 12.4424993 7.87999976 13.4999992 8.93749958 8.99999946 13.4374993 4.49999973 8.93749958"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Group-5-Copy" transform="translate(196.000000, 26.000000)">
+                        <text id="In-progress-complete" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="32" fill="#E7E9EA">
+                            <tspan x="44" y="14">In progress</tspan>
+                            <tspan x="44" y="46">completed</tspan>
+                            <tspan x="44" y="78">Paused</tspan>
+                            <tspan x="44" y="110">Approaching SLA</tspan>
+                        </text>
+                        <rect id="Rectangle-8" fill="#3B4753" x="0" y="4" width="33" height="24" rx="4"></rect>
+                        <rect id="Rectangle-8-Copy" fill="#3B4753" x="0" y="36" width="33" height="24" rx="4"></rect>
+                        <rect id="Rectangle-8-Copy-2" fill="#3B4753" x="0" y="68" width="33" height="24" rx="4"></rect>
+                        <rect id="Rectangle-8-Copy-2" fill="#3B4753" x="0" y="101" width="33" height="24" rx="4"></rect>
+                        <text id="35-23-47-12" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="32">
+                            <tspan x="9" y="14" fill="#50E3AC">35</tspan>
+                            <tspan x="26.1376953" y="14" fill="#E7E9EA"></tspan>
+                            <tspan x="9" y="46" fill="#FFF794">23</tspan>
+                            <tspan x="25.9326172" y="46" fill="#E7E9EA"></tspan>
+                            <tspan x="9" y="78" fill="#CD93FF">47</tspan>
+                            <tspan x="9" y="110" fill="#FF6E80">12</tspan>
+                        </text>
+                    </g>
+                    <g id="Group-4-Copy" transform="translate(3.000000, 1.000000)" stroke-width="19.44" stroke-dasharray="155.520002746582">
+                        <use id="Oval" stroke="#CD93FF" mask="url(#mask-6)" transform="translate(96.500000, 96.500000) rotate(-270.000000) translate(-96.500000, -96.500000) " xlink:href="#path-5"></use>
+                        <use id="Oval" stroke="#50E3AC" mask="url(#mask-8)" transform="translate(96.500000, 96.500000) rotate(-45.000000) translate(-96.500000, -96.500000) " xlink:href="#path-7"></use>
+                        <use id="Oval" stroke="#FF6E80" mask="url(#mask-10)" transform="translate(96.500000, 96.500000) rotate(48.000000) translate(-96.500000, -96.500000) " xlink:href="#path-9"></use>
+                        <use id="Oval" stroke="#FFF894" mask="url(#mask-12)" transform="translate(96.500000, 96.500000) rotate(17.000000) translate(-96.500000, -96.500000) " xlink:href="#path-11"></use>
+                    </g>
+                    <text id="78-copy" font-family=".SFNSDisplay, .SF NS Display" font-size="38.88" font-weight="normal" fill="#E7E9EA">
+                        <tspan x="80" y="100">78</tspan>
+                    </text>
+                    <text id="Work-orders-Copy" font-family=".AppleSystemUIFont" font-size="12.96" font-weight="normal" fill="#E7E9EA">
+                        <tspan x="82.053125" y="126">Work </tspan>
+                        <tspan x="78.3701563" y="142">orders</tspan>
+                    </text>
+                    <g id="Group-2-Copy" transform="translate(0.000000, 292.000000)">
+                        <g id="unselected-copy">
+                            <mask id="mask-14" fill="white">
+                                <use xlink:href="#path-13"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-13"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-15)" xlink:href="#path-13"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-14)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-14)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-14)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-14)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-14)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-2" transform="translate(0.000000, 89.000000)">
+                            <mask id="mask-17" fill="white">
+                                <use xlink:href="#path-16"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#DBF9ED" fill-rule="evenodd" xlink:href="#path-16"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-18)" xlink:href="#path-16"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-17)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-17)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-17)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-17)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-17)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-3" transform="translate(0.000000, 178.000000)">
+                            <mask id="mask-20" fill="white">
+                                <use xlink:href="#path-19"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-19"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-21)" xlink:href="#path-19"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-20)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-20)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-20)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-20)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-20)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-4" transform="translate(0.000000, 267.000000)">
+                            <mask id="mask-23" fill="white">
+                                <use xlink:href="#path-22"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-22"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-24)" xlink:href="#path-22"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-23)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-23)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-23)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-23)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-23)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-5" transform="translate(0.000000, 356.000000)">
+                            <mask id="mask-26" fill="white">
+                                <use xlink:href="#path-25"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-25"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-27)" xlink:href="#path-25"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-26)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-26)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-26)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-26)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-26)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-6" transform="translate(0.000000, 445.000000)">
+                            <mask id="mask-29" fill="white">
+                                <use xlink:href="#path-28"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-28"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-30)" xlink:href="#path-28"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-29)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-29)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-29)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-29)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-29)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-7" transform="translate(0.000000, 534.000000)">
+                            <mask id="mask-32" fill="white">
+                                <use xlink:href="#path-31"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-31"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-33)" xlink:href="#path-31"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-32)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-32)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-32)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-32)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-32)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-8" transform="translate(0.000000, 623.000000)">
+                            <mask id="mask-35" fill="white">
+                                <use xlink:href="#path-34"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-34"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-36)" xlink:href="#path-34"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-35)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-35)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-35)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-35)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-35)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-9" transform="translate(0.000000, 712.000000)">
+                            <mask id="mask-38" fill="white">
+                                <use xlink:href="#path-37"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-37"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-39)" xlink:href="#path-37"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-38)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-38)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-38)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-38)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-38)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                        <g id="unselected-copy-10" transform="translate(0.000000, 801.000000)">
+                            <mask id="mask-41" fill="white">
+                                <use xlink:href="#path-40"></use>
+                            </mask>
+                            <g id="bg">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-40"></use>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-42)" xlink:href="#path-40"></use>
+                            </g>
+                            <text id="--Product-Supply-Pum" mask="url(#mask-41)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="90.7383863" y="47">- Product Supply Pump 3</tspan>
+                            </text>
+                            <text id="Product-supply-pump" mask="url(#mask-41)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="21.1246944" y="71">Product supply pump leaking. Please fix as per </tspan>
+                                <tspan x="21.1246944" y="95">task list</tspan>
+                            </text>
+                            <text id="PUMP003" mask="url(#mask-41)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="47">PUMP003</tspan>
+                            </text>
+                            <text id="S00100" mask="url(#mask-41)" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#494949">
+                                <tspan x="21.1246944" y="23">S00100</tspan>
+                            </text>
+                            <text id="SLA-24-Feb-2017" mask="url(#mask-41)" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="24" fill="#8D8D8D">
+                                <tspan x="266.22168" y="23">SLA 24 Feb </tspan>
+                                <tspan x="309.821289" y="47">2017</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <rect id="Rectangle" fill="#50E3AC" x="0" y="292" width="4" height="89"></rect>
+                    <rect id="Rectangle-Copy-2" fill="#FFF794" x="0" y="381" width="4" height="89"></rect>
+                    <rect id="Rectangle-Copy-3" fill="#FFF794" x="0" y="470" width="4" height="89"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#CD93FF" x="0" y="559" width="4" height="89"></rect>
+                    <rect id="Rectangle-Copy-6" fill="#FFF794" x="0" y="648" width="4" height="89"></rect>
+                    <rect id="Rectangle-Copy-7" fill="#FFF794" x="0" y="737" width="4" height="89"></rect>
+                    <rect id="Rectangle-Copy-8" fill="#FFF794" x="0" y="826" width="4" height="89"></rect>
+                </g>
+            </svg>
+        </div>
+
+        <div id="details-detail">
+            detail
+        </div>
+
+        <div id="details-actions">
+
+            <svg width="288px" height="923px" viewBox="1152 124 288 923" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Group-13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1152.000000, 124.000000)">
+                    <g id="RHP">
+                        <rect id="Rectangle-7" fill="#878E96" opacity="0.900000036" x="0" y="0" width="288" height="923"></rect>
+                        <g id="Group-3" transform="translate(24.000000, 9.000000)" font-size="24" font-family=".SFNSDisplay, .SF NS Display" line-spacing="40" fill="#3B4753" font-weight="normal">
+                            <text id="On-Key-Assistant">
+                                <tspan x="0" y="23">On Key Assistant</tspan>
+                            </text>
+                        </g>
+                        <g id="Group-6" transform="translate(16.000000, 89.000000)">
+                            <rect id="Rectangle-4" fill="#3B4753" opacity="0.800000012" x="0" y="0" width="256" height="140" rx="4"></rect>
+                            <text id="Current-status" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" fill="#E7E9EA">
+                                <tspan x="8" y="22">Current status</tspan>
+                            </text>
+                            <text id="Not-started" font-family=".AppleSystemUIFont" font-size="18" font-weight="normal" line-spacing="32" fill="#FFFFFF">
+                                <tspan x="89" y="60">Not started</tspan>
+                            </text>
+                            <g id="Group-7-Copy" transform="translate(8.000000, 99.000000)">
+                                <g>
+                                    <rect id="Rectangle-Copy-2" fill="#50E3AC" x="0" y="1" width="240" height="32" rx="2"></rect>
+                                    <g id="dropdown" transform="translate(209.910653, 8.000000)" opacity="0.600000024">
+                                        <g id="Group-3">
+                                            <g id="Group-2" transform="translate(5.017182, 3.000000)" fill="#3B4753">
+                                                <polygon id="Fill-2" points="0.0137457045 7.9999994 4.0137457 11.9999994 8.0137457 7.9999994"></polygon>
+                                                <polygon id="Fill-2" transform="translate(4.013746, 2.000000) scale(1, -1) translate(-4.013746, -2.000000) " points="0.0137457045 0 4.0137457 4 8.0137457 0"></polygon>
+                                            </g>
+                                            <polygon id="Stroke-1" stroke-opacity="0.00784313771" stroke="#000000" stroke-width="1.33333335e-11" points="0 0 18.0618545 0 18.0618545 17.9999989 0 17.9999989"></polygon>
+                                        </g>
+                                    </g>
+                                    <text id="Change-status" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="32" fill="#3B4753">
+                                        <tspan x="20" y="15">Change status</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Group-6-Copy" transform="translate(16.000000, 237.000000)">
+                            <rect id="Rectangle-4" fill="#3B4753" opacity="0.800000012" x="0" y="0" width="256" height="205" rx="4"></rect>
+                            <text id="Actions" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" fill="#E7E9EA">
+                                <tspan x="8" y="22">Actions</tspan>
+                            </text>
+                            <text id="Find-duplicates-Acti" font-family=".AppleSystemUIFont" font-size="16" font-weight="normal" line-spacing="24" fill="#E7E9EA">
+                                <tspan x="16" y="62">Find duplicates</tspan>
+                                <tspan x="16" y="86">Action work order</tspan>
+                                <tspan x="16" y="110">Compare</tspan>
+                                <tspan x="16" y="134">Add tasks</tspan>
+                                <tspan x="16" y="158">Add spares</tspan>
+                                <tspan x="16" y="182">Assign to</tspan>
+                            </text>
+                        </g>
+                        <g id="close" transform="translate(246.000000, 24.000000)">
+                            <polygon id="Stroke-1" stroke-opacity="0.00784313771" stroke="#000000" stroke-width="1.33333335e-11" points="0 0 18 0 18 18 0 18"></polygon>
+                            <polygon id="Fill-2" fill="#3B4753" transform="translate(9.000000, 9.000000) rotate(45.000000) translate(-9.000000, -9.000000) " points="14 9.71428571 9.71428571 9.71428571 9.71428571 14 8.28571429 14 8.28571429 9.71428571 4 9.71428571 4 8.28571429 8.28571429 8.28571429 8.28571429 4 9.71428571 4 9.71428571 8.28571429 14 8.28571429"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+</template>

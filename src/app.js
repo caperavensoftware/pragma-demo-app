@@ -8,6 +8,7 @@ export class App {
             {route: ['assets'], name: 'assets', moduleId: 'views/assets/assets', nav: true, title: 'Assets'},
             {route: ['planning'], name: 'planning', moduleId: 'views/planning-and-scheduling/planning-and-scheduling', nav: true, title: 'Planning and Scheduling'},
             {route: ['workorders'], name: 'workorders', moduleId: 'views/work-orders/work-orders', nav: true, title: 'Work Orders'},
+            {route: ['details'], name: 'details', moduleId: 'views/details/details', nav: true, title: 'Details'}
         ]);
 
         this.router = router;
