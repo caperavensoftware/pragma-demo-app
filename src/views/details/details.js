@@ -8,18 +8,19 @@ import {DetailsDesktop} from './details-desktop';
 import {DetailsMobile} from './details-mobile';
 
 export const viewState = {
-    hasDataItems: false,
+    showDataItems: false,
     inBrowse: false
 };
 
-@inject(Element, Router)
+@inject(Router)
 export class Details {
     viewState = viewState;
     controller;
+    detailsElement;
+    listElement;
+    actionsElement;
 
-    constructor(element) {
-        this.element = element;
-        this.controller = isMobile() ? new DetailsMobile(this) : new DetailsDesktop(this);
+    constructor() {
     }
 
     activate(params) {
@@ -31,14 +32,18 @@ export class Details {
         this.controller = null;
     }
 
+    bind() {
+        this.controller = isMobile() ? new DetailsMobile(this) : new DetailsDesktop(this);
+    }
+
     processInitialView(params) {
         if (params.browse) {
-            this.viewState.hasDataItems = true;
+            this.viewState.showDataItems = true;
             this.viewState.inBrowse = true;
         }
         else if (params.id) {
             this.recordId = params.id;
-            this.viewState.hasDataItems = false;
+            this.viewState.showDataItems = false;
             this.viewState.inBrowse = false;
         }
     }

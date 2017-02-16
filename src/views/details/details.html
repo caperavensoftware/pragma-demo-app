@@ -1,7 +1,7 @@
 <template>
     <require from="./details.css"></require>
     <div class="main-toolbar">
-        <button click.delegate="backToBrowse()" class="back-button" if.bind="!viewState.inBrowse && viewState.hasDataItems">
+        <button click.delegate="backToBrowse()" class="back-button" if.bind="!viewState.inBrowse && viewState.showDataItems">
             <svg width="19" height="19" viewBox="77 79 19 19" xmlns="http://www.w3.org/2000/svg"><g opacity=".8" fill="none" fill-rule="evenodd"><path d="M78 80h18v18H78z"/><path fill="#3B4753" d="M93 88.25h-9.13l4.19-4.19L87 83l-6 6 6 6 1.06-1.06-4.19-4.19H93z"/></g></svg>
         </button>
 
@@ -27,8 +27,8 @@
         Grid Views
     </div>
 
-    <div id="details">
-        <div id="details-list" if.bind="viewState.hasDataItems">
+    <div id="details" ref="detailsElement">
+        <div id="details-list" if.bind="viewState.showDataItems" ref="listElement">
             <svg width="361px" height="1182px" viewBox="54 126 361 1182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
                 <desc>Created with Sketch.</desc>
@@ -465,8 +465,7 @@
             detail
         </div>
 
-        <div id="details-actions">
-
+        <div id="details-actions" ref="actionsElement">
             <svg width="288px" height="923px" viewBox="1152 124 288 923" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
                 <desc>Created with Sketch.</desc>
